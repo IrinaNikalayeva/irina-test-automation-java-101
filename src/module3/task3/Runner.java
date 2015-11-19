@@ -16,7 +16,7 @@ public class Runner {
         System.out.println("Would you like to compose a bouqet? Press y if you do.. ");
         String createDecision = scanner.next();
 
-        if (createDecision.equals("y")){
+        if (createDecision.equals("y")) {
             System.out.println("How many flowers do you want?");
             int flowerCount = scanner.nextInt();
             System.out.println("Enter Ids of flowers for bouqete:");
@@ -26,7 +26,6 @@ public class Runner {
             System.out.println("Total pice for your order: " + operations.returnTotalPrice(operations.composeBouqete(flower, finalComposeNumbers)));
 
         }
-
 
 
     }

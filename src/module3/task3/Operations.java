@@ -16,31 +16,24 @@ public class Operations implements Interface {
         }
     }
 
-    public int[] createBouqeteByNum( int flowerCount) {
-
+    public int[] createBouqeteByNum(int flowerCount) {
         int[] composedListOfNumbers = new int[flowerCount];
         for (int i = 0; i < flowerCount; i++) {
-            composedListOfNumbers[i] = scanner.nextInt()-1; //flowerNum;
-            //System.out.println(composedListOfNumbers[i]);
+            composedListOfNumbers[i] = scanner.nextInt() - 1;
         }
         return composedListOfNumbers;
-
     }
 
     public List<FlowerKind> composeBouqete(List<FlowerKind> flower, int[] composedListOfNumbers) {
-
-        for (int i = 0; i < composedListOfNumbers.length; i++){
+        for (int i = 0; i < composedListOfNumbers.length; i++) {
             bouqetList.add(flower.get(composedListOfNumbers[i]));
         }
-
         return bouqetList;
-
     }
 
-    public double returnTotalPrice(List<FlowerKind> bouqetList){
+    public double returnTotalPrice(List<FlowerKind> bouqetList) {
         double totalPrice = 0;
-
-        for (int i = 0; i < bouqetList.size()/2; i++){
+        for (int i = 0; i < bouqetList.size() / 2; i++) {
             totalPrice = totalPrice + bouqetList.get(i).getFlowerPrice();
         }
         return totalPrice;

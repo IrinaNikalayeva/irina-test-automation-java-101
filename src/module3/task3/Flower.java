@@ -7,13 +7,13 @@ public class Flower {
     protected String flowerName;
     protected Double flowerPrice;
 
-    public Flower(int id, String flowerName, Double flowerPrice){
+    public Flower(int id, String flowerName, Double flowerPrice) {
         this.id = id;
         this.flowerName = flowerName;
         this.flowerPrice = flowerPrice;
     }
 
-       public Double getFlowerPrice() {
+    public Double getFlowerPrice() {
         return flowerPrice;
     }
 
@@ -30,15 +30,12 @@ public class Flower {
     }
 
     public int getId() {
-
         return id;
     }
 
     public String getFlowerName() {
 
         return flowerName;
-
-
     }
 
     @Override

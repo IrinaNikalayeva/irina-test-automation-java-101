@@ -1,13 +1,17 @@
 package module3.task3;
 
+import module3.task5.NullFlowerQuantityException;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public interface Interface {
-    public void displayList(List<FlowerKind> flower);
+    public void displayList(ArrayList<FlowerKind> flower);
 
-    public int[] createBouqeteByNum(int flowerCount);
+    public int[] createBouquetByNum(int flowerCount) throws NullFlowerQuantityException;
 
-    public List<FlowerKind> composeBouqete(List<FlowerKind> flower, int[] composedListOfNumbers);
+    public List<FlowerKind> composeBouquet(ArrayList<FlowerKind> flower, int[] composedListOfNumbers);
 
-    public double returnTotalPrice(List<FlowerKind> bouqetList);
+    public double returnTotalPrice(ArrayList<FlowerKind> bouqetList);
+
 }

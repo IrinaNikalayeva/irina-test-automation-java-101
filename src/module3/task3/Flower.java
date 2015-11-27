@@ -1,7 +1,5 @@
 package module3.task3;
 
-import java.util.List;
-
 public class Flower {
     protected int id;
     protected String flowerName;
@@ -40,10 +38,7 @@ public class Flower {
 
     @Override
     public String toString() {
-        return "Flower{" +
-                "id=" + id +
-                ", flowerName='" + flowerName + '\'' +
-                ", flowerPrice=" + flowerPrice +
-                '}';
+        return
+                "id=" + id + " " + "Name= " + flowerName + " " + "Price=" + flowerPrice;
     }
 }

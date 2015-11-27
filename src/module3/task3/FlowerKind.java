@@ -3,7 +3,6 @@ package module3.task3;
 import module3.task5.NegativePriceException;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class FlowerKind extends Flower {
 

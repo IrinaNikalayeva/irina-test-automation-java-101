@@ -2,28 +2,36 @@ package module3.task3;
 
 import module3.task5.NullFlowerQuantityException;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.*;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 
 public class Runner {
-    public static void main(String[] args) throws NullFlowerQuantityException {
+    public static void main(String[] args) throws NullFlowerQuantityException, FileNotFoundException {
         Scanner scanner = new Scanner(System.in);
         try {
             ArrayList<FlowerKind> flower = FlowerKind.createflower();
             Operations operations = new Operations();
 
+            IO.writeFile(flower);
             System.out.println("We have the following flowers: ");
-            operations.displayList(flower);
-
+            String text = IO.readList("ListOfFlowers.txt");
+            System.out.println(text);
             System.out.println("Would you like to compose a bouquet? Press y if you do.. ");
             String createDecision = scanner.next();
 
             if (createDecision.equals("y")) {
                 int flowerCount = operations.getFlowerQuantity();
                 int[] finalComposeNumbers = operations.createBouquetByNum(flowerCount);
-                System.out.println("You've composed the following bouquet: " + operations.composeBouquet(flower, finalComposeNumbers));
-                System.out.println("Total price for your order: " + operations.returnTotalPrice(operations.composeBouquet(flower, finalComposeNumbers)));
+                ArrayList<FlowerKind> composeBouquet = operations.composeBouquet(flower, finalComposeNumbers);
+
+                System.out.println("You've composed the following bouquet: " + "\n" + composeBouquet);
+                System.out.println("Total price for your order: " + operations.returnTotalPrice(composeBouquet));
+                IO.writeComposedBouquet(composeBouquet);
+
+
             }
         } catch (InputMismatchException e) {
             System.out.print("Please use integer!");

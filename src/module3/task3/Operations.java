@@ -19,8 +19,8 @@ public class Operations implements Interface {
     }
 
     public int getFlowerQuantity() throws NullFlowerQuantityException {
-        System.out.println("How many flowers do you want?"); //
-        int flowerCount = scanner.nextInt(); //
+        System.out.println("How many flowers do you want?");
+        int flowerCount = scanner.nextInt();
         if (flowerCount == 0) {
             throw new NullFlowerQuantityException(toString());
         }
@@ -30,7 +30,7 @@ public class Operations implements Interface {
 
     public int[] createBouquetByNum(int flowerCount) throws NullFlowerQuantityException {
 
-        System.out.println("Enter Ids of flowers for bouqeut:"); //
+        System.out.println("Enter Ids of flowers for bouquet:");
         int[] composedListOfNumbers = new int[flowerCount];
         for (int i = 0; i < flowerCount; i++) {
             composedListOfNumbers[i] = scanner.nextInt() - 1;
@@ -42,14 +42,13 @@ public class Operations implements Interface {
         for (int i = 0; i < composedListOfNumbers.length; i++) {
             bouquetList.add(flower.get(composedListOfNumbers[i]));
             bouquetList.trimToSize();
-
         }
         return bouquetList;
     }
 
     public double returnTotalPrice(ArrayList<FlowerKind> bouqetList) {
         double totalPrice = 0;
-        for (int i = 0; i < bouqetList.size() / 2; i++) {
+        for (int i = 0; i < bouqetList.size(); i++) {
             totalPrice = totalPrice + bouqetList.get(i).getFlowerPrice();
         }
         return totalPrice;

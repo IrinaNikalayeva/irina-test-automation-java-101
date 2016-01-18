@@ -1,3 +1,5 @@
+package task1;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -6,7 +8,10 @@ import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-public class TestSteps {
+/**
+ * Created by Iryna on 1/17/2016.
+ */
+public class Task1Steps {
     static final String USERNAME = "maven.test";
     static final String PASSWORD = "Qwerty123";
     String to = "maven.test@mail.ru";
@@ -14,15 +19,15 @@ public class TestSteps {
     String messageBody = "Hello Maven!";
 
 
-     static {
+    static {
         //System.setProperty("webdriver.chrome.driver",
-               // "D:\\TA\\Module5\\chromedriver.exe");
+        // "D:\\TA\\Module5\\chromedriver.exe");
 
-         System.setProperty("webdriver.chrome.driver",
-                 "chromedriver.exe");
-     }
+        System.setProperty("webdriver.chrome.driver",
+                "D:\\TA\\chromedriver.exe");
+    }
 
-        WebDriver webDriver = new ChromeDriver();
+    WebDriver webDriver = new ChromeDriver();
 
     @Test(priority = 0)
     public void signIn(){
@@ -65,5 +70,4 @@ public class TestSteps {
     @AfterSuite
     public void quitBrowser() {
         webDriver.close();
-    }
-}
+    }}

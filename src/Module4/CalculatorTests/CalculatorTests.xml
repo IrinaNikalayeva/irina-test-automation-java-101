@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Suite1">
+
+    <test name="CtngTest">
+        <classes>
+            <class name="Module4.CalculatorTests.CtngTest" />
+        </classes>
+    </test>
+
+    <test name="DivTest">
+        <classes>
+            <class name="Module4.CalculatorTests.DivTest" />
+        </classes>
+    </test>
+
+    <test name="MultTest">
+        <classes>
+            <class name="Module4.CalculatorTests.MultTest" />
+        </classes>
+    </test>
+
+    <test name="PowTest">
+        <classes>
+            <class name="Module4.CalculatorTests.PowTest" />
+        </classes>
+    </test>
+    <test name="SqrtTest">
+        <classes>
+            <class name="Module4.CalculatorTests.SqrtTest" />
+        </classes>
+    </test>
+
+    <test name="SubTest">
+        <classes>
+            <class name="Module4.CalculatorTests.SubTest" />
+        </classes>
+    </test>
+
+    <test name="SumTest">
+        <classes>
+            <class name="Module4.CalculatorTests.SumTest" />
+        </classes>
+    </test>
+    <test name="TgTest">
+        <classes>
+            <class name="Module4.CalculatorTests.TgTest" />
+        </classes>
+    </test>
+
+</suite>

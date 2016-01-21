@@ -34,6 +34,8 @@ public class MailBoxPage extends AbstractPage {
     @FindBy(xpath = "//a[contains(@href, '/messages/drafts/')]")
     private WebElement draftsButton;
 
+    @FindBy(id = "PH_user-email")
+    private WebElement username;
 
 
     public MailBoxPage(WebDriver webDriver) {
@@ -41,7 +43,11 @@ public class MailBoxPage extends AbstractPage {
         PageFactory.initElements(this.webDriver, this);
     }
 
-    public void createEmail(String to, String subject, String body){
+    public String getUsername() {
+        return username.getText();
+    }
+
+    public void createEmail(String to, String subject, String body) {
         createEmail.click();
         toField.sendKeys(to);
         subjectField.sendKeys(subject);
@@ -49,7 +55,10 @@ public class MailBoxPage extends AbstractPage {
         bodyField.clear();
         bodyField.sendKeys(body);
         webDriver.switchTo().defaultContent();
+    }
 
+    public String coposeEmailCheck() {
+        return webDriver.getCurrentUrl();
     }
 
     public void saveAsDraft() throws InterruptedException {
@@ -57,36 +66,19 @@ public class MailBoxPage extends AbstractPage {
         Thread.sleep(1000);
     }
 
-    public DraftsPage openDraftsPage(){
+    public DraftsPage openDraftsPage() {
         draftsButton.click();
         return PageFactory.initElements(webDriver, DraftsPage.class);
     }
 
-    public String getToFieldText(){
-        System.out.println(toField.getText());
-        return toField.getText();
 
+    public String getSaveButtonStatus() {
+        return saveDraftButton.getAttribute("aria-disabled").toString();
     }
-
-    public String getSubjectFieldText(){
-        return subjectField.getText();
-    }
-
-    public String getBodyFieldText(){
-        return bodyField.getText();
-    }
-
-    public String getSaveButtonStatus(){
-       return saveDraftButton.getAttribute("aria-disabled").toString();
-    }
-
 
 
     @Override
-    public void openPage(){
+    public void openPage() {
         webDriver.get(BASE_URL);
-
     }
-
-
 }

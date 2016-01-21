@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 
-public class DraftsPage extends AbstractPage{
+public class DraftsPage extends AbstractPage {
 
     public static final String BASE_URL = "https://e.mail.ru/messages/drafts/";
 
@@ -18,16 +18,14 @@ public class DraftsPage extends AbstractPage{
     @FindBy(xpath = "//a[starts-with(@href, 'https://e.mail.ru/compose/')]")
     private WebElement lastCreatedEmail;
 
-    public EmailDetailsPage chooseLastEmail(){
-        //String emailID = lastCreatedEmail.getAttribute("data-id").toString();
-       String email = lastCreatedEmail.getAttribute("href").toString();
+    public EmailDetailsPage chooseLastEmail() {
+        String email = lastCreatedEmail.getAttribute("href").toString();
         webDriver.get(email);
         return PageFactory.initElements(webDriver, EmailDetailsPage.class);
-
     }
 
     @Override
-    public void openPage(){
+    public void openPage() {
         webDriver.get(BASE_URL);
 
     }

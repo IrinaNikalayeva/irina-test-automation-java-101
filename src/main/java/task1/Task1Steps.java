@@ -8,9 +8,6 @@ import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-/**
- * Created by Iryna on 1/17/2016.
- */
 public class Task1Steps {
     static final String USERNAME = "maven.test";
     static final String PASSWORD = "Qwerty123";
@@ -30,14 +27,15 @@ public class Task1Steps {
     WebDriver webDriver = new ChromeDriver();
 
     @Test(priority = 0)
-    public void signIn(){
+    public void signIn() {
         webDriver.get("https://mail.ru");
         webDriver.findElement(By.id("mailbox__login")).sendKeys(USERNAME);
         webDriver.findElement(By.id("mailbox__password")).sendKeys(PASSWORD);
         webDriver.findElement(By.id("mailbox__auth__button")).click();
     }
+
     @Test(priority = 1)
-    public void createAnEmail(){
+    public void createAnEmail() {
         webDriver.findElement(By.cssSelector("span.b-toolbar__btn__text.b-toolbar__btn__text_pad")).click();
         webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         webDriver.findElement(By.xpath("//textarea[2]")).sendKeys(to);
@@ -47,6 +45,7 @@ public class Task1Steps {
         webDriver.findElement(By.id("tinymce")).sendKeys(messageBody);
         webDriver.switchTo().defaultContent();
     }
+
     @Test(priority = 2)
     public void saveDraft() throws InterruptedException {
         webDriver.findElement(By.xpath("//div[@data-name='saveDraft']")).click();
@@ -63,11 +62,12 @@ public class Task1Steps {
     }
 
     @Test(priority = 4)
-    public void sendAnEmail(){
+    public void sendAnEmail() {
         webDriver.findElement(By.xpath("//div[@data-name='send']")).click();
     }
 
     @AfterSuite
     public void quitBrowser() {
         webDriver.close();
-    }}
+    }
+}

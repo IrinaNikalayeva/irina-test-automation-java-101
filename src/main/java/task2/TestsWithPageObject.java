@@ -15,20 +15,21 @@ public class TestsWithPageObject {
     String messageBody = "Hello Maven!";
 
     @BeforeTest
-    public void setUp()
-    {
+    public void setUp() {
         testSteps = new TestSteps();
         testSteps.initBrowser();
     }
 
     @Test(priority = 0)
-    public void loginInMailBox(){
+    public void loginInMailBox() {
         testSteps.login(USERNAME, PASSWORD);
+        Assert.assertTrue(testSteps.isLoggedIn(USERNAME));
     }
 
     @Test(priority = 1)
-    public void createEmail(){
+    public void createEmail() {
         testSteps.createEmail(to, suject, messageBody);
+        Assert.assertTrue(testSteps.isEmailCreating());
     }
 
     @Test(priority = 2)
@@ -38,29 +39,26 @@ public class TestsWithPageObject {
     }
 
     @Test(priority = 3)
-    public void goToDrafts(){
+    public void goToDrafts() {
         testSteps.goToDrafts();
+        Assert.assertTrue(testSteps.isDraftsAreOpened());
     }
 
     @Test(priority = 4)
-    public void chooseEmail(){
+    public void chooseEmail() {
         testSteps.chooseEmail();
+        Assert.assertTrue(testSteps.isEmailChosen());
     }
 
     @Test(priority = 5)
-    public void senEmail(){
+    public void senEmail() throws InterruptedException {
         testSteps.sendEmail();
+        Assert.assertTrue(testSteps.isEmailSent());
     }
 
     @AfterTest
-    public void CleanUp(){
+    public void CleanUp() {
         testSteps.closeDriver();
 
     }
-
-
-
-
-
-
 }

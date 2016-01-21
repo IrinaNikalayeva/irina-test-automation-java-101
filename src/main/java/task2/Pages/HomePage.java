@@ -14,7 +14,7 @@ public class HomePage extends AbstractPage {
         PageFactory.initElements(this.webDriver, this);
     }
 
-    @FindBy(xpath= "//input[@id='mailbox__login']")
+    @FindBy(xpath = "//input[@id='mailbox__login']")
     private WebElement loginField;
 
     @FindBy(id = "mailbox__password")
@@ -23,11 +23,11 @@ public class HomePage extends AbstractPage {
     @FindBy(id = "mailbox__auth__button")
     private WebElement loginButton;
 
-    public void openHomePage(String BASE_URL){
+    public void openHomePage(String BASE_URL) {
         webDriver.get(BASE_URL);
     }
 
-    public void loginInMailBox(String username, String password){
+    public void loginInMailBox(String username, String password) {
 
         loginField.sendKeys(username);
         passwordField.sendKeys(password);
@@ -35,12 +35,10 @@ public class HomePage extends AbstractPage {
     }
 
     @Override
-    public void openPage(){
+    public void openPage() {
         webDriver.get(BASE_URL);
 
     }
-
-
 
 
 }
